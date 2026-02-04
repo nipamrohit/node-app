@@ -17,7 +17,7 @@ pipeline {
                 )]) {
                     bat '''
                     docker login -u %DOCKER_USER% -p %DOCKER_PASS%
-                    docker push nipamrohit121/node-deploy-app
+                    docker push nipamrohit121/node-app
                     '''
                 }
             }
