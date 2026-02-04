@@ -22,5 +22,15 @@ pipeline {
                 }
             }
         }
+
+        stage('Deploy Container') {
+            steps {
+                bat '''
+                docker stop node-app || echo "no container"
+                docker rm node-app || echo "no container"
+                docker run -d --name node-app -p 3000:3000 nipamrohit121/node-app
+                '''
+            }
+        }        
     }
 }
