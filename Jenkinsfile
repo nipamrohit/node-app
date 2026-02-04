@@ -10,13 +10,22 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t nipamrohit121/node-app .'
+                bat 'docker build -t nipamrohit121/node-app .'
             }
         }
 
-        stage('Push Image') {
+        stage('Push to Docker Hub') {
             steps {
-                sh 'docker push nipamrohit121/node-app'
+                withCredentials([usernamePassword(
+                    credentialsId: 'dockerhub-creds',
+                    usernameVariable: 'nipamrohit121',
+                    passwordVariable: 'Maruti@1166'
+                )]) {
+                    bat '''
+                    docker login -u %DOCKER_USER% -p %DOCKER_PASS%
+                    docker push nipamrohit121/node-app
+                    '''
+                }
             }
         }
     }
