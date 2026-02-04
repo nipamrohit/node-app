@@ -18,12 +18,12 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(
                     credentialsId: 'dockerhub-creds',
-                    usernameVariable: 'nipamrohit121',
-                    passwordVariable: 'Maruti@1166'
+                    usernameVariable: 'DOCKER_USER',
+                    passwordVariable: 'DOCKER_PASS'
                 )]) {
                     bat '''
                     docker login -u %DOCKER_USER% -p %DOCKER_PASS%
-                    docker push nipamrohit121/node-app
+                    docker push nipamrohit121/node-deploy-app
                     '''
                 }
             }
