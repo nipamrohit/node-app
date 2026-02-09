@@ -65,7 +65,7 @@ post {
             </body>
             </html>
             """,
-            to: "yourmail@gmail.com"
+            to: "nipamrohit121@gmail.com"
         )
     }
 }
