@@ -31,4 +31,21 @@ pipeline {
             }
         }        
     }
+    
+    post {
+    failure {
+        emailext (
+            subject: "❌ Jenkins Build Failed: ${JOB_NAME} #${BUILD_NUMBER}",
+            body: """
+                <h3>Build Failed</h3>
+                <p><b>Project:</b> ${JOB_NAME}</p>
+                <p><b>Build:</b> #${BUILD_NUMBER}</p>
+                <p><b>Status:</b> FAILED</p>
+                <p><b>URL:</b> ${BUILD_URL}</p>
+            """,
+            to: "yourmail@gmail.com"
+        )
+    }
+}
+
 }
