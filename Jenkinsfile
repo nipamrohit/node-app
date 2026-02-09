@@ -43,7 +43,7 @@ pipeline {
                 <p><b>Status:</b> FAILED</p>
                 <p><b>URL:</b> ${BUILD_URL}</p>
             """,
-            to: "yourmail@gmail.com"
+            to: "nipamrohit121@gmail.com"
         )
     }
 }
