@@ -1,7 +1,6 @@
 pipeline {
 agent any
 
-```
 environment {
     IMAGE_NAME = "nipamrohit121/node-app"
     CONTAINER_NAME = "node-app"
